@@ -26,8 +26,26 @@
             return;
         }
     });
+});
 
-    var pickerkeydown = function () {
-        console.log('e');
-    };
+jQuery(document).on("submit", ".quickSubmit", function (event) {
+    debugger;
+    event.preventDefault();
+    var form = jQuery(this);
+    var url = form.attr("action");
+    jQuery.ajax({
+        type: "POST",
+        async: true,
+        url: url,
+        data: { "ID": 1, "Name": "Vu Cong Duan", "Phone": "0987654321" },
+        beforeSend: function () {
+        },
+        complete: function () {
+        },
+        error: function () {
+        },
+        success: function (response) {
+            console.log(response);
+            debugger;
+        });
 });

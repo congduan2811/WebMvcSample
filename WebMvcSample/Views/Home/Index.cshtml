@@ -1,31 +1,61 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+    <form action="/Home/LuuThemMoi" method="post" class="quickSubmit">
+        <input id="ID" name="ID" value="1" />
+        <input name="Title" value="Vu Cong Duan" />
+        <input name="Title" value="Vu Cong Dieu" />
+        <input id="Genre" value="0987654321" />
+        <button type="submit">OK</button>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+        string: <input name="type" value="@(typeof(string).Name)" /><br />
+        list_string: <input name="type" value="@(typeof(List<string>).Name)" /><br />
+        array_string: <input name="type" value="@(typeof(string[]).Name)" /><br />
+        int: <input name="type" value="@(typeof(int).Name)" /><br />
+        list_int: <input name="type" value="@(typeof(List<int>).Name)" /><br />
+        long: <input name="type" value="@(typeof(long).Name)" /><br />
+        double: <input name="type" value="@(typeof(double).Name)" /><br />
+        float: <input name="type" value="@(typeof(float).Name)" /><br />
+        Byte: <input name="type" value="@(typeof(Byte).Name)" /><br />
+        object: <input name="type" value="@(typeof(object).Name)" /><br />
+        Hashtable: <input name="type" value="@(typeof(System.Collections.Hashtable).Name)" /><br />
+        Decimal: <input name="type" value="@(typeof(Decimal).Name)" /><br />
+        DateTime: <input name="type" value="@(typeof(DateTime).Name)" /><br />
+    </form>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+@section scripts{
+    <script src="~/Assets/app/home_about.js"></script>
+}
+
+@*@{var catalogs = stgDocCatalogs.Where(x => x.IDType == categoryType.ID).ToList();
+        <div class="form-group has-feedback">
+            <label class="col-lg-4 control-label">@label</label>
+            <div class="col-lg-8">
+                <input id="UpStgDoc@(cname)" name="@cname" data-target="#UpStgDoc@(name)Container" data-name="IDCategory" data-type="@categoryType.ID"
+                       placeholder="@label" class="form-control autocompleteCategory" type="text"
+                       data-bv-notempty-message="@Locate.T("{0} không được trống", label)" data-bv-field="@cname" data-bv-notempty="@(stgDocFieldSetting.IsRequired ? "true" : "false")">
+                <div id="UpStgDoc@(name)Container" class="useScrollBar scrollItems h70">
+                    @if (Utils.IsNotEmpty<StgDocCatalog>(catalogs))
+                    {
+                        foreach (var catalog in catalogs)
+                        {
+                            var item = categories.Where(x => x.ID == catalog.IDCategory).SingleOrDefault();
+                            if (Utils.IsNotEmpty(item))
+                            {
+                                <div class="scrollItem tickGroup">
+                                    <div class="col-sm-12 ">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input checked type="checkbox" value="@item.ID" class="colored-success tickItem" name="IDCategory" id="UpStgDoc@(name)@(item.ID)">
+                                                <span class="nowrap text">@item.Name</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    }*@
