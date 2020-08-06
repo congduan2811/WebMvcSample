@@ -14,11 +14,11 @@ namespace WebAPISample.Controllers
     {
         [Route("Search")]
         [HttpGet]
-        public System.Web.Http.Results.JsonResult<WebAPISample.Utils.DataModel> Search(string name="", int orderStart = 0, int orderfinish = 10)
+        public string Search(string name="", int orderStart = 0, int orderfinish = 10)
         {
             var data = AccountRepository.Search(name, orderStart, orderfinish);
             JavaScriptSerializer serialize = new JavaScriptSerializer();
-            return Json<WebAPISample.Utils.DataModel>(data);
+            return serialize.Serialize(data);
         }
 
         // GET api/values/5
